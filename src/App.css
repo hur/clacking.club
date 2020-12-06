@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+
+html, body {
+  background-color: rgba(0,0,0,0.65);
+  margin: 0;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+.App {
+  color: #F2F2F2;
+  font-family: 'JetSpace Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h3 {
+  display: inline-block;
+  font-weight: 700;
+  font-style: bold;
+  color: #F5F5F5;
+  margin: 0;
+  padding: 1em;
+  text-underline-position: under;
+  text-decoration: #687E5A underline;
+  text-decoration-thickness: 0.1em;
+}
+
+#header {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.typing {
+  font-size: 1.5em;
+  margin: auto;
+  text-align: center;
+}
+
+#stats {
+  font-size: 0.8em;
+  text-align: center;
+  font-weight: 700;
+}
+
+#currentChar {
+  background-color: #687E5A;
+  white-space: pre;
+}
+
+#currentCharError {
+  white-space: pre;
+}
+
+#previousText {
+  color: #818181;
+  white-space: pre;
+}
+
+#errorText {
+  background-color: #705a7e;
+  white-space: pre;
+}
+
+#nextText {
+  white-space: pre;
+}
+
+#wpm {
+  float: left;
+}
+#accuracy {
+  float: right;
+}
+
