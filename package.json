@@ -1,6 +1,6 @@
 {
   "name": "clacking.club",
-  "homepage": "https://clacking.club",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,8 @@
     "faker": "^5.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "react-scripts": "4.0.1",
+    "react-sizes": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
