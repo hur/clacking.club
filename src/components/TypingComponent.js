@@ -32,7 +32,7 @@ const mapSizesToProps = ({ width }) => ({
         this.keyPresses = 0;
         
         this.startTime = null;
-        this.wpm = 0;
+        this.wpm = "0";
         this.accuracy = (100).toFixed(this.precision);
         
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -43,8 +43,8 @@ const mapSizesToProps = ({ width }) => ({
             this.startTime = currentTime();
         }
         this.keyPresses++;
-        if (event.key === this.currentChar && this.errorText.length == 0) {
-            if (this.nextText.charAt(0) == " ") {
+        if (event.key === this.currentChar && this.errorText.length === 0) {
+            if (this.nextText.charAt(0) === " ") {
                 this.wordCount++;
             }
             this.previousText += this.currentChar;
@@ -57,13 +57,13 @@ const mapSizesToProps = ({ width }) => ({
             if (event.key === "Backspace" || event.key === "Delete") {
                 this.errorText = this.errorText.substring(0, this.errorText.length - 1);
                 this.keyPresses--;
-            } else if (event.key.length == 1) {
+            } else if (event.key.length === 1) {
                 this.errors++;
                 this.errorText += event.key;
             }
         }
 
-        this.wpm = (this.wordCount / timeDelta(this.startTime)).toFixed(0) || 0;
+        this.wpm = ((this.wordCount / timeDelta(this.startTime)) || 0).toFixed(0);
         this.accuracy = ((1 - this.errors / this.keyPresses) * 100).toFixed(this.precision);
         this.setState({});
     }
@@ -83,7 +83,7 @@ const mapSizesToProps = ({ width }) => ({
                 <span id="errorText">{this.errorText.slice(-this.props.window)}</span>
                 <span id="currentChar">{this.currentChar}</span>
                 <span id="nextText">{this.nextText.substring(0, this.props.window)}</span>
-                <div id="stats"><span id="wpm">{this.wpm.toString().padStart(3) || 0} words/minute</span><span id="accuracy">{this.accuracy} %</span></div>
+                <div id="stats"><span id="wpm">{this.wpm.padStart(3)} words/minute</span><span id="accuracy">{this.accuracy} %</span></div>
             </div>
         );
     }
