@@ -40,9 +40,7 @@ export default class TypingComponent extends React.Component {
         if (!this.startTime) {
             this.startTime = currentTime();
         }
-
         this.keyPresses++;
-
         if (event.key === this.currentChar && this.errorText.length == 0) {
             if (this.nextText.charAt(0) == " ") {
                 this.wordCount++;
@@ -56,6 +54,7 @@ export default class TypingComponent extends React.Component {
         } else {
             if (event.key === "Backspace" || event.key === "Delete") {
                 this.errorText = this.errorText.substring(0, this.errorText.length - 1);
+                this.keyPresses--;
             } else if (event.key.length == 1) {
                 this.errors++;
                 this.errorText += event.key;
@@ -77,7 +76,8 @@ export default class TypingComponent extends React.Component {
     render () {
         return (
             <div className="typing">
-                <span id="previousText">{this.previousText.substring(this.previousText.length-(Math.max(this.window - this.errorText.length, 0))).padStart((Math.max(this.window - this.errorText.length, 0)))}</span>
+                <span id="previousText">{this.previousText.substring(this.previousText.length-(Math.max(this.window - this.errorText.length, 0)))
+                    .padStart((Math.max(this.window - this.errorText.length, 0)))}</span>
                 <span id="errorText">{this.errorText.slice(-this.window)}</span>
                 <span id="currentChar">{this.currentChar}</span>
                 <span id="nextText">{this.nextText.substring(0, this.window)}</span>
