@@ -76,3 +76,9 @@ h3 {
   float: right;
 }
 
+#mobilehelper {
+  padding-top: 0.5em;
+  clear: both;
+  font-size: 0.5em;
+}
+

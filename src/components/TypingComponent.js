@@ -2,8 +2,10 @@ import React from 'react';
 import {currentTime, timeDelta} from "../utils/time.js";
 import generateWords from "../utils/words.js";
 import withSizes from 'react-sizes';
+import {isMobile} from 'react-device-detect';
 
 const mapSizesToProps = ({ width }) => ({
+    // How many characters to display to either side of the current char
     window: width < 600 ? 10: 20,
   })
 
@@ -12,11 +14,8 @@ const mapSizesToProps = ({ width }) => ({
         super(props)
         this.state = {};
         
-
-        // How many characters to display to either side of the current char
         // Decimal precision for accuracy
         this.precision = 1;
-        
         // Text that has been correctly typed
         this.previousText = "";
         // Upcoming text
@@ -76,6 +75,7 @@ const mapSizesToProps = ({ width }) => ({
     }
     
     render () {
+        const mobileHelper = isMobile ?<p id="mobilehelper">Mobile keyboard not supported.</p>: false;
         return (
             <div className="typing">
                 <span id="previousText">{this.previousText.substring(this.previousText.length-(Math.max(this.props.window - this.errorText.length, 0)))
@@ -84,6 +84,7 @@ const mapSizesToProps = ({ width }) => ({
                 <span id="currentChar">{this.currentChar}</span>
                 <span id="nextText">{this.nextText.substring(0, this.props.window)}</span>
                 <div id="stats"><span id="wpm">{this.wpm.padStart(3)} words/minute</span><span id="accuracy">{this.accuracy} %</span></div>
+                { mobileHelper }
             </div>
         );
     }
