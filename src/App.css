@@ -14,7 +14,6 @@ html, body, #root, .App {
   font-family: 'JetSpace Mono', monospace;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 h3 {
