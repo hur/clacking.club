@@ -83,7 +83,7 @@ const mapSizesToProps = ({ width }) => ({
                 <span id="errorText">{this.errorText.slice(-this.props.window)}</span>
                 <span id="currentChar">{this.currentChar}</span>
                 <span id="nextText">{this.nextText.substring(0, this.props.window)}</span>
-                <div id="stats"><span id="wpm">{this.wpm.padStart(3)} words/minute</span><span id="accuracy">{this.accuracy} %</span></div>
+                <div id="stats"><span id="wpm"></span><span id="accuracy">{this.accuracy} %</span></div>
                 { mobileHelper }
             </div>
         );
